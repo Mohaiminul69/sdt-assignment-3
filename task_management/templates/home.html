@@ -1,0 +1,27 @@
+{%extends 'base.html'%} {% load crispy_forms_tags %} {%block content%}
+<section class="py-5">
+  <h1>This is the Home page.</h1>
+
+  <div class="my-4">
+    <div class="row">
+      {% for task in tasks %}
+      <div class="col-sm-4 mb-3">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">{{task.task_title}}</h5>
+            <p class="card-text">{{task.task_description}}</p>
+            <div class="my-3">
+              {% for category in task.category.all %}
+              <span>{{category.name}}</span>
+              {% endfor %}
+            </div>
+            <a class="btn btn-warning">Edit</a>
+            <a class="btn btn-danger">Delete</a>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{%endblock%}
