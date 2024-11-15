@@ -15,8 +15,12 @@
               <span>{{category.name}}</span>
               {% endfor %}
             </div>
-            <a class="btn btn-warning">Edit</a>
-            <a class="btn btn-danger">Delete</a>
+            <a href="{% url 'edit_task' task.id %}" class="btn btn-warning"
+              >Edit</a
+            >
+            <a href="{% url 'delete_task' task.id %}" class="btn btn-danger"
+              >Delete</a
+            >
           </div>
         </div>
       </div>
